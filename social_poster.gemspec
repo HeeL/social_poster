@@ -16,4 +16,10 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^test/})
   gem.require_paths = ["lib"]
+
+  gem.add_dependency('test-unit', '2.4.3')
+  gem.add_dependency('shoulda', '2.11.3')
+  gem.add_dependency('shoulda-matchers', '1.2.0')
+  gem.add_dependency('mocha', '0.13.0')
+
 end

@@ -1,11 +1,14 @@
-require "social_poster/version"
+$:.push File.expand_path("../lib", __FILE__)
+
+require 'social_poster/version'
+require 'social_poster/poster/facebook'
+require 'social_poster/poster/twitter'
+require 'social_poster/poster/live_journal'
+require 'social_poster/poster/vkontakte'
 
 module SocialPoster
 
-  @@vk = {}
-  @@facebook = {}
-  @@livejournal = {}
-  @@twitter = {}
+  @@vk = @@facebook = @@livejournal = @@twitter = {}
 
   def self.setup
     yield self
@@ -25,6 +28,22 @@ module SocialPoster
 
   def self.twitter= value
     @@twitter = value
+  end
+
+  def self.write(network, text, title = '')
+    site = case network.to_sym
+    when :fb
+      site = Poster::Facebook.new
+    when :twitter
+      site = Poster::Twitter.new
+    when :lj
+      site = Poster::LiveJournal.new
+    when :vk
+      site = Poster::Vkontakte.new
+    else
+      raise "Unknown network #{network}"
+    end
+    site.write(text, title)
   end
 
 end

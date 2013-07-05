@@ -17,9 +17,9 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^test/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency('test-unit', '2.4.3')
-  gem.add_dependency('shoulda', '2.11.3')
-  gem.add_dependency('shoulda-matchers', '1.2.0')
-  gem.add_dependency('mocha', '0.13.0')
+  gem.add_dependency('test-unit', '2.5.5')
+  gem.add_dependency('shoulda', '3.5.0')
+  gem.add_dependency('shoulda-matchers', '2.2.0')
+  gem.add_dependency('mocha', '0.14.0')
 
 end

@@ -1,29 +1,40 @@
+#!/usr/bin/env ruby
+
 $:.push File.expand_path("../lib", __FILE__)
 
-require 'social_poster/version'
-require 'social_poster/poster/facebook'
-require 'social_poster/poster/twitter'
-require 'social_poster/poster/live_journal'
-require 'social_poster/poster/vkontakte'
+require_relative 'social_poster/version'
+require_relative 'social_poster/poster/facebook'
+require_relative 'social_poster/poster/twitter'
+require_relative 'social_poster/poster/live_journal'
+require_relative 'social_poster/poster/vkontakte'
 
 module SocialPoster
 
-  @@vk = @@facebook = @@livejournal = @@twitter = {}
+  @@vk = @@fb = @@lj = @@twitter = {}
 
   def self.setup
     yield self
+  end
+
+  def self.get_config(name)
+    { 
+      fb: @@fb,
+      vk: @@vk,
+      lj: @@lj,
+      twitter: @@twitter
+    }[name.to_sym]
   end
 
   def self.vk= value
     @@vk = value
   end
 
-  def self.facebook= value
-    @@facebook = value
+  def self.fb= value
+    @@fb = value
   end
 
-  def self.livejournal= value
-    @@livejournal = value
+  def self.lj= value
+    @@lj = value
   end
 
   def self.twitter= value
@@ -47,3 +58,4 @@ module SocialPoster
   end
 
 end
+

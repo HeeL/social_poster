@@ -3,6 +3,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 require_relative 'social_poster/version'
+require_relative 'social_poster/helper'
 require_relative 'social_poster/poster/facebook'
 require_relative 'social_poster/poster/twitter'
 require_relative 'social_poster/poster/live_journal'
@@ -18,10 +19,10 @@ module SocialPoster
 
   def self.get_config(name)
     { 
-      fb: @@fb,
-      vk: @@vk,
-      lj: @@lj,
-      twitter: @@twitter
+      facebook:    @@fb,
+      vkontakte:   @@vk,
+      livejournal: @@lj,
+      twitter:     @@twitter
     }[name.to_sym]
   end
 

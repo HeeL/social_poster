@@ -4,12 +4,10 @@ module SocialPoster
   module Poster
     
     class Facebook
-      def write(text, title)
-        FbGraph::User.me(access_token).feed!(message: text)
-      end
+      include SocialPoster::Helper
 
-      def access_token
-        SocialPoster.get_config(:fb)[:access_token]
+      def write(text, title)
+        FbGraph::User.me(config_key :access_token).feed!(message: text)
       end
     end
 

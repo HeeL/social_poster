@@ -23,5 +23,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency('mocha', '0.14.0')
   gem.add_dependency('fb_graph', '~> 2.7.7')
   gem.add_dependency('twitter', '~> 4.0')
+  gem.add_dependency('livejournal', '~> 0.3.8')
 
 end

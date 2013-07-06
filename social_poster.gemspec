@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency('shoulda', '3.5.0')
   gem.add_dependency('shoulda-matchers', '2.2.0')
   gem.add_dependency('mocha', '0.14.0')
-  gem.add_dependency('fb_graph')
+  gem.add_dependency('fb_graph', '~> 2.7.7')
+  gem.add_dependency('twitter', '~> 4.0')
 
 end

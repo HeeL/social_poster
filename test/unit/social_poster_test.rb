@@ -9,9 +9,11 @@ class SocialPosterTest < Test::Unit::TestCase
     assert_equal true, SocialPoster.respond_to?(:write)
   end
 
-  should "have write to lj, vk, fb and twitter" do
-    [Facebook, LiveJournal, Twitter, Vkontakte].each{|network| network.any_instance.stubs(:write).returns(true)}
-    %w(lj fb vk twitter).each{|network| SocialPoster::write(network, 'test', 'test')}
+  should "post to fb and twitter" do
+    [Facebook, Twitter].each do |network|
+      network.any_instance.stubs(:write).returns(true)
+    end
+    %w(fb twitter).each{|network| SocialPoster::write(network, 'test', 'test')}
   end
 
 end

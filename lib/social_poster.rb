@@ -7,11 +7,10 @@ require_relative 'social_poster/helper'
 require_relative 'social_poster/poster/facebook'
 require_relative 'social_poster/poster/twitter'
 require_relative 'social_poster/poster/live_journal'
-require_relative 'social_poster/poster/vkontakte'
 
 module SocialPoster
 
-  @@vk = @@fb = @@lj = @@twitter = {}
+  @@fb = @@lj = @@twitter = {}
 
   def self.setup
     yield self
@@ -20,14 +19,9 @@ module SocialPoster
   def self.get_config(name)
     { 
       facebook:    @@fb,
-      vkontakte:   @@vk,
       livejournal: @@lj,
       twitter:     @@twitter
     }[name.to_sym]
-  end
-
-  def self.vk= value
-    @@vk = value
   end
 
   def self.fb= value
@@ -50,8 +44,6 @@ module SocialPoster
       site = Poster::Twitter.new
     when :lj
       site = Poster::LiveJournal.new
-    when :vk
-      site = Poster::Vkontakte.new
     else
       raise "Unknown network #{network}"
     end
@@ -59,4 +51,3 @@ module SocialPoster
   end
 
 end
-

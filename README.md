@@ -6,6 +6,19 @@ SocialPoster is a gem that allows you easily post to different social networks. 
 * Livejournal
 
 
+Installation
+-------------
+
+In console: 
+```
+gem install social_poster
+```
+or in your Gemfile:
+```
+gem 'social_poster'
+```
+
+
 Configuration
 -------------
 

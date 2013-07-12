@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{SocialPoster is a gem that allows you easily post to different social networks.}
   gem.summary       = %q{Post to social networks}
   gem.homepage      = "https://github.com/HeeL/social_poster"
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

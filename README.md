@@ -4,6 +4,7 @@ SocialPoster is a gem that allows you easily post to different social networks. 
 * Facebook
 * Twitter
 * Livejournal
+* Vkontakte
 
 
 Installation
@@ -31,6 +32,10 @@ SocialPoster.setup do |config|
     access_token: 'ACCESS_TOKEN'
   }
 
+  config.vk = {
+    access_token: 'ACCESS_TOKEN'
+  }
+
   config.twitter = {
     consumer_key:       'CONSUMER_KEY',
     consumer_secret:    'CONSUMER_SECRET',
@@ -54,6 +59,7 @@ In controller or model you can post to different social networks like this:
 
 ```ruby
 SocialPoster.write(:fb, 'Something that will appear on your Facebook Wall...')
+SocialPoster.write(:vk, 'Something that will appear on your Vkontakte Wall...')
 SocialPoster.write(:twitter, 'Tweet tweet tweet')
 SocialPoster.write(:lj, 'A long text of the post...', 'A short title of it')
 ```

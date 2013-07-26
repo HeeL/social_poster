@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["HeeL"]
   gem.email         = ["parizhskiy@gmail.com"]
   gem.description   = %q{SocialPoster is a gem that allows you easily post to different social networks.}
-  gem.summary       = %q{Post to social networks}
+  gem.summary       = %q{Post to social networks: Facebook, Vkontakte, LiveJournal, Twitter}
   gem.homepage      = "https://github.com/HeeL/social_poster"
   gem.license       = "MIT"
 
@@ -25,5 +25,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency('fb_graph', '~> 2.7.7')
   gem.add_dependency('twitter', '~> 4.0')
   gem.add_dependency('livejournal', '~> 0.3.8')
+  gem.add_dependency('vk-ruby', '~> 0.9.3')
 
 end

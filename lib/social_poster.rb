@@ -4,13 +4,13 @@ $:.push File.expand_path("../lib", __FILE__)
 
 require_relative 'social_poster/version'
 require_relative 'social_poster/helper'
-require_relative 'social_poster/poster/facebook'
-require_relative 'social_poster/poster/twitter'
-require_relative 'social_poster/poster/live_journal'
+[:vkontakte, :facebook, :live_journal, :twitter].each do |p|
+  require_relative "social_poster/poster/#{p}"
+end
 
 module SocialPoster
 
-  @@fb = @@lj = @@twitter = {}
+  @@fb = @@lj = @@twitter = @@vk = {}
 
   def self.setup
     yield self
@@ -20,6 +20,7 @@ module SocialPoster
     { 
       facebook:    @@fb,
       livejournal: @@lj,
+      vkontakte:   @@vk,
       twitter:     @@twitter
     }[name.to_sym]
   end
@@ -32,6 +33,10 @@ module SocialPoster
     @@lj = value
   end
 
+  def self.vk= value
+    @@vk = value
+  end
+
   def self.twitter= value
     @@twitter = value
   end
@@ -40,6 +45,8 @@ module SocialPoster
     site = case network.to_sym
     when :fb
       site = Poster::Facebook.new
+    when :vk
+      site = Poster::Vkontakte.new
     when :twitter
       site = Poster::Twitter.new
     when :lj

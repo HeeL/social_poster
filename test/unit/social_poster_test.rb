@@ -10,10 +10,10 @@ class SocialPosterTest < Test::Unit::TestCase
   end
 
   should "post to fb and twitter" do
-    [Facebook, Twitter].each do |network|
+    [Facebook, Twitter, Vkontakte].each do |network|
       network.any_instance.stubs(:write).returns(true)
     end
-    %w(fb twitter).each{|network| SocialPoster::write(network, 'test', 'test')}
+    %w(fb twitter vk).each{|network| SocialPoster::write(network, 'test', 'test')}
   end
 
 end

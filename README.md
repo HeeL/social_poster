@@ -63,6 +63,10 @@ SocialPoster.write(:vk, 'Something that will appear on your Vkontakte Wall...')
 SocialPoster.write(:twitter, 'Tweet tweet tweet')
 SocialPoster.write(:lj, 'A long text of the post...', 'A short title of it')
 ```
+For Vkontakte API there is a possibility of providing additional options. For instance, for posting on a group wall use this example:
+```ruby
+SocialPoster.write(:vk, 'Text on the Group Wall...', nil, owner_id: '-GROUP_ID')
+```
 
 
 Contribute

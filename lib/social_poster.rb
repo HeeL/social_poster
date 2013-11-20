@@ -44,7 +44,7 @@ module SocialPoster
   def self.write(network, text, title = '', options = {})
     site = case network.to_sym
     when :fb
-      site = Poster::Facebook.new
+      site = Poster::Facebook.new(options)
     when :vk
       site = Poster::Vkontakte.new(options)
     when :twitter

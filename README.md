@@ -68,6 +68,11 @@ For Vkontakte API there is a possibility of providing additional options. For in
 SocialPoster.write(:vk, 'Text on the Group Wall...', nil, owner_id: '-GROUP_ID')
 ```
 
+You can specify extra parameters for Facebook API too. For instance, you can post links, or pictures like this:
+```ruby
+SocialPoster.write(:fb, 'Text on the Wall...', nil, link: 'http://google.com', picture: 'https://www.google.com/images/srpr/logo11w.png')
+```
+
 
 Contribute
 ----------
